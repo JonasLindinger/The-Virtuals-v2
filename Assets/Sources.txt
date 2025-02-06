@@ -1,0 +1,9 @@
+Facepunch.Steamworks            | Steamworks.NET
+git-amend                       | SceneManagement and PersistentSingleton   https://github.com/adammyhre/Unity-Inventory-System/blob/master/Assets/_Project/Scripts/Utility/PersistentSingleton.cs
+Eflatun                         | Eflatun.SceneReference                    https://github.com/starikcetin/Eflatun.SceneReference/tree/main?tab=MIT-1-ov-file
+FigmaToUnity                    | Figma.com
+Google Icons                    | https://fonts.google.com/icons
+DoTween                         | https://dotween.demigiant.com/
+CarlBoisvertDev                 | https://www.youtube.com/watch?v=BaQMY7eJYnE&list=PLxmtWA2eKdQSj4QXR9gVv1i4I-qE-MsZ7&index=4
+Netcode for GameObjects         | Unity
+Multiplayer Play Mode           | Unity
