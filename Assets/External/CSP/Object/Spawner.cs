@@ -26,7 +26,7 @@ namespace CSP.Object
         
         public static void SpawnObjectAnonymousWithOwner(ulong clientId, GameObject networkObject, Transform spawnPoint)
         {
-            var newObject = Instantiate(networkObject.gameObject).GetComponent<NetworkObject>();
+            var newObject = Instantiate(networkObject.gameObject, spawnPoint.position, spawnPoint.rotation).GetComponent<NetworkObject>();
             newObject.AlwaysReplicateAsRoot = false;
             newObject.SynchronizeTransform = false;
             newObject.ActiveSceneSynchronization = false;
@@ -43,15 +43,11 @@ namespace CSP.Object
             
             newObject.SpawnWithOwnership(clientId);
             newObject.NetworkShow(clientId);
-            
-            // Set pisition and rotation
-            newObject.transform.position = spawnPoint.position;
-            newObject.transform.rotation = spawnPoint.rotation;
         }
         
         public static void SpawnObjectAnonymousWithOwnerPermanent(ulong clientId, GameObject networkObject, Transform spawnPoint)
         {
-            var newObject = Instantiate(networkObject.gameObject).GetComponent<NetworkObject>();
+            var newObject = Instantiate(networkObject.gameObject, spawnPoint.position, spawnPoint.rotation).GetComponent<NetworkObject>();
             newObject.AlwaysReplicateAsRoot = false;
             newObject.SynchronizeTransform = false;
             newObject.ActiveSceneSynchronization = false;
@@ -68,15 +64,11 @@ namespace CSP.Object
             
             newObject.SpawnWithOwnership(clientId);
             newObject.NetworkShow(clientId);
-            
-            // Set pisition and rotation
-            newObject.transform.position = spawnPoint.position;
-            newObject.transform.rotation = spawnPoint.rotation;
         }
         
         public static void SpawnObjectPublicWithOwner(ulong clientId, GameObject networkObject, Transform spawnPoint)
         {
-            var newObject = Instantiate(networkObject.gameObject).GetComponent<NetworkObject>();
+            var newObject = Instantiate(networkObject.gameObject, spawnPoint.position, spawnPoint.rotation).GetComponent<NetworkObject>();
             newObject.AlwaysReplicateAsRoot = false;
             newObject.SynchronizeTransform = false;
             newObject.ActiveSceneSynchronization = false;
@@ -92,15 +84,11 @@ namespace CSP.Object
             newObject.DontDestroyWithOwner = false;
             
             newObject.SpawnWithOwnership(clientId);
-            
-            // Set pisition and rotation
-            newObject.transform.position = spawnPoint.position;
-            newObject.transform.rotation = spawnPoint.rotation;
         }
         
         public static void SpawnObjectPublicWithOwnerPermanent(ulong clientId, GameObject networkObject, Transform spawnPoint)
         {
-            var newObject = Instantiate(networkObject.gameObject).GetComponent<NetworkObject>();
+            var newObject = Instantiate(networkObject.gameObject, spawnPoint.position, spawnPoint.rotation).GetComponent<NetworkObject>();
             newObject.AlwaysReplicateAsRoot = false;
             newObject.SynchronizeTransform = false;
             newObject.ActiveSceneSynchronization = false;
@@ -116,10 +104,6 @@ namespace CSP.Object
             newObject.DontDestroyWithOwner = true;
             
             newObject.SpawnWithOwnership(clientId);
-
-            // Set pisition and rotation
-            newObject.transform.position = spawnPoint.position;
-            newObject.transform.rotation = spawnPoint.rotation;
         }
         #endif
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Project.Scripts.Matchmaking;
 using _Project.Scripts.Network;
 using _Project.Scripts.Teams;
@@ -18,7 +19,14 @@ namespace _Project.Scripts.Player
         [Header("1v1 Spawnpoints")]
         [SerializeField] private Transform _1v1SpawnpointA;
         [SerializeField] private Transform _1v1SpawnpointB;
-        
+
+        private void Start()
+        {
+            // Hide
+            _1v1SpawnpointA.GetChild(0).gameObject.SetActive(false);
+            _1v1SpawnpointB.GetChild(0).gameObject.SetActive(false);
+        }
+
         #if Server
         public void SpawnPlayers(Team[] teams, GameMode gamemode)
         {
