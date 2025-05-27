@@ -2194,11 +2194,13 @@ MonoBehaviour:
   _gameModePrefab: {fileID: 7855625350175060435, guid: 38783021807fa993d822ad3d72efe35b, type: 3}
   _gameModes:
   - _displayName: Unranked
-    _gameMode: 1
+    gameMode: 1
   - _displayName: Ranked
-    _gameMode: 2
+    gameMode: 2
   - _displayName: Custom
-    _gameMode: 3
+    gameMode: 3
+  - _displayName: Local
+    gameMode: 4
 --- !u!1 &1221790676
 GameObject:
   m_ObjectHideFlags: 0

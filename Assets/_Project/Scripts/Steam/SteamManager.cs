@@ -1,6 +1,6 @@
 using _Project.Scripts.ModalWindow;
-using _Project.Scripts.SceneManagement;
 using _Project.Scripts.Utility;
+using SceneManagement;
 using Steamworks;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ namespace _Project.Scripts.Steam
             if (!SteamClient.IsValid) return;
             
             // Loading into Main Menu
-            SceneLoader.Instance.LoadSceneGroup(0);
+            SceneLoader.GetInstance().LoadSceneGroup(0);
         }
 
         private void ConnectToSteam()

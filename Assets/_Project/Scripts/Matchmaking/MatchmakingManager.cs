@@ -1,6 +1,8 @@
-using _Project.Scripts.Network;
-using _Project.Scripts.SceneManagement;
+using System;
 using _Project.Scripts.Utility;
+using CSP;
+using CSP.Data;
+using Steamworks;
 using UnityEngine;
 
 namespace _Project.Scripts.Matchmaking
@@ -12,14 +14,23 @@ namespace _Project.Scripts.Matchmaking
         {
             Debug.Log("Play: " + gameModeInfo._displayName);
 
-            switch (gameModeInfo._gameMode)
+            switch (gameModeInfo.gameMode)
             {
                 case GameMode.Unranked:
+                    throw new NotImplementedException();
                     break;
                 case GameMode.Ranked:
+                    throw new NotImplementedException();
                     break;
                 case GameMode.Custom:
-                    CustomNetworkManager.Instance.ConnectToServer(Settings.IP, Settings.Port);
+                    throw new NotImplementedException();
+                    break;
+                case GameMode.Local:
+                    ConnectionPayload payload = new ConnectionPayload();
+                    payload.DisplayName = SteamClient.Name;
+                    payload.ClientId = SteamClient.SteamId;
+                    
+                    NetworkRunner.GetInstance().Run(Settings.IP, Settings.Port, payload);
                     break;
             }
         }

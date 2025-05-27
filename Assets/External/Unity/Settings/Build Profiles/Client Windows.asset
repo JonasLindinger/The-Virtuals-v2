@@ -25,7 +25,7 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/_Project/Scenes/MainMenu.unity
   - m_enabled: 1
-    m_path: Assets/_Project/Scenes/NetworkLayer.unity
+    m_path: Assets/_Project/Scenes/Waiting for Players.unity
   - m_enabled: 1
     m_path: Assets/_Project/Scenes/Map 01.unity
   m_ScriptingDefines:
@@ -173,7 +173,9 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 0.1.0'
-    - line: '|   preloadedAssets: []'
+    - line: '|   preloadedAssets:'
+    - line: '|   - {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b,
+        type: 3}'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'
