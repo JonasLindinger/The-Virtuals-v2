@@ -8,6 +8,7 @@ namespace CSP.Object
         protected virtual void Start()
         {
             Register();
+            OnStart();
         }
         
         public void Register()
@@ -15,6 +16,10 @@ namespace CSP.Object
             SnapshotManager.RegisterNetworkedObject(NetworkObjectId, this);
         }
 
+        public virtual void OnStart()
+        {
+            // Just for overriding purposes
+        }
         public abstract IState GetCurrentState();
         public abstract void ApplyState(uint tick, IState state);
     }

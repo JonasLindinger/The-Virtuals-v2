@@ -7,6 +7,7 @@ using CSP.Items;
 using CSP.Object;
 using CSP.Player;
 using CSP.Simulation;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -43,6 +44,8 @@ namespace _Project.Scripts.Player
         [SerializeField] private Camera playerCamera;
         [SerializeField] private Transform gunContainer;
 
+        private NetworkVariable<float> _startingYRotation = new NetworkVariable<float>(0f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+        
         // Prediction Update Tick 
         private uint _predictedDeathTick = 0;
         
@@ -67,6 +70,27 @@ namespace _Project.Scripts.Player
         private PickUpItem _itemToPickUp;
         private bool _dropItem;
         #endif
+
+        public override void OnStart()
+        {
+            // Syncing the starting Y rotation
+            #if Server
+            // Setting the starting Y rotation to the current rotation
+            _startingYRotation.Value = transform.eulerAngles.y;
+            #endif
+            
+            #if Client
+            // Registering the starting Y rotation
+            _startingYRotation.OnValueChanged += (oldValue, newValue) =>
+            {
+                transform.rotation = Quaternion.Euler(0f, _startingYRotation.Value, 0f);
+                _yRotation = _startingYRotation.Value;
+            };
+            
+            transform.rotation = Quaternion.Euler(0f, _startingYRotation.Value, 0f);
+            _yRotation = _startingYRotation.Value;
+            #endif
+        }
         
         public override void OnSpawn()
         {
